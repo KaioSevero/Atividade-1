@@ -1,0 +1,53 @@
+cont_a = 0
+cont_b = 0
+cont_c = 0
+cont_m = 0
+cont_v = 0
+cont_n = 0
+
+n = int(input("Digite a quantidade de moradores: "))
+
+for i in range(n):
+
+    elevador = input("Qual elevador você utiliza? (A, B ou C): ").upper()
+    periodo = input("Qual período? (M, V ou N): ").upper()
+
+    if elevador == "A":
+        cont_a += 1
+    elif elevador == "B":
+        cont_b += 1
+    elif elevador == "C":
+        cont_c += 1
+
+    if periodo == "M":
+        cont_m += 1
+    elif periodo == "V":
+        cont_v += 1
+    elif periodo == "N":
+        cont_n += 1
+
+maior_elevador = max(cont_a, cont_b, cont_c)
+
+if cont_a == maior_elevador:
+    print("Elevador mais utilizado: A")
+elif cont_b == maior_elevador:
+    print("Elevador mais utilizado: B")
+else:
+    print("Elevador mais utilizado: C")
+
+maior_periodo = max(cont_m, cont_v, cont_n)
+
+if cont_m == maior_periodo:
+    print("Período mais utilizado: Matutino")
+elif cont_v == maior_periodo:
+    print("Período mais utilizado: Vespertino")
+else:
+    print("Período mais utilizado: Noturno")
+
+menor_periodo = min(cont_m, cont_v, cont_n)
+
+if menor_periodo != 0:
+    diferenca = ((maior_periodo - menor_periodo) / menor_periodo) * 100
+    print(f"Diferença percentual: {diferenca:.2f}%")
+else:
+    print("Não é possível calcular a diferença percentual.")
